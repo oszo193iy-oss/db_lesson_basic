@@ -112,14 +112,9 @@ mysql> SELECT * FROM people
     -> ORDER BY age DESC, name;
 
 Q6.
-SELECT
-  `name`, `email`, `age`
-FROM
-  `people`
-WHERE
-  `department_id` = 1
-ORDER BY
-  `created_at`;
+Peopleテーブルから
+department_idレコードが1で部署が営業の人の
+Name,email,ageカラムを作成日が古い順で表示する。
 
 Q7.
 mysql> SELECT name FROM people WHERE age BETWEEN 20 AND 29 AND gender = 2 OR age BETWEEN 40 AND 49 AND gender = 1;
