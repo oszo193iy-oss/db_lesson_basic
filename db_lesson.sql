@@ -117,14 +117,14 @@ department_idレコードが1で部署が営業の人の
 Name,email,ageカラムを作成日が古い順で表示する。
 
 Q7.
-mysql> SELECT name FROM people WHERE age BETWEEN 20 AND 29 AND gender = 2 OR age BETWEEN 40 AND 49 AND gender = 1;
+mysql> SELECT name FROM people WHERE age BETWEEN 20 AND 29 AND gender = 2  OR age BETWEEN 40 AND 49 AND gender = 1;
 
 Q8.
 mysql> SELECT * FROM people WHERE department_id = 1
     -> ORDER BY age ASC;
 
 Q9.
-mysql> SELECT AVG(age) FROM people WHERE department_id = 2 AND gender = 2;
+mysql> SELECT AVG(age) AS average_age FROM people WHERE department_id = 2 AND gender = 2;
 
 Q10.
 mysql> SELECT people.name,departments.name,reports.content FROM people INNER JOIN reports ON people.person_id=reports.person_id INNER JOIN departments ON people.department_id  = departments.department_id;
