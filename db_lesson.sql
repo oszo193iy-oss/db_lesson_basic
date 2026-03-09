@@ -7,19 +7,19 @@ mysql> CREATE TABLE departments (
     -> );
 
 Q2.
-ALTER TABLE people ADD department_id INT unsigned;--emailの後ろに追加する
+ALTER TABLE people ADD department_id INT unsigned COMMENT 'emailの後ろに追加する';
 
 Q3. 
 INSERT INTO departments (name) VALUES ('営業'),('開発'),('経理'),('人事'),('情報システム');
 
-INSERT INTO people (name,department_id)
+INSERT INTO people (name,department_id,email,age)
     -> VALUES
-    -> ('山田花子',2),
-    -> ('佐藤健',2),
-    -> ('鈴木誠',2),
-    -> ('高橋優',3),
-    -> ('伊藤美咲',4),
-    -> ('中村直樹',5);
+    -> ('山田花子',2,'yamada@gizumo.jp',2),
+    -> ('佐藤健',2,'sato@gizumo.jp',1),
+    -> ('鈴木誠',2,'suzuki@gizumo.jp',1),
+    -> ('高橋優',3,'takahashi@gizumo.jp',2),
+    -> ('伊藤美咲',4,'ito@gizumo.jp',2),
+    -> ('中村直樹',5,'nakamura@gizumo.jp',1);
 
 
 mysql> INSERT INTO reports (person_id ,content)
@@ -38,14 +38,23 @@ mysql> INSERT INTO reports (person_id ,content)
 
 Q4.
 mysql> UPDATE people
-    -> SET email = 'toyoshima@gizumo.jp'
+    -> SET department_id = 1
+    -> WHERE person_id = 1;
+
+    mysql> UPDATE people
+    -> SET department_id = 1
+    -> WHERE person_id = 2;
+
+    mysql> UPDATE people
+    -> SET department_id = 1
     -> WHERE person_id = 3;
-Query OK, 1 row affected (0.00 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
+
+    mysql> UPDATE people
+    -> SET department_id = 2
+    -> WHERE person_id = 5;
 
 mysql> UPDATE people SET email = 'hushigi@gizumo.jp'  WHERE person_id = 5;
-Query OK, 1 row affected (0.00 sec)
-Rows matched: 1  Changed: 1  Warnings: 0
+
 
 mysql> UPDATE people SET email = 'yamada@gizumo.jp'  WHERE person_id = 16;
 Query OK, 1 row affected (0.00 sec)
